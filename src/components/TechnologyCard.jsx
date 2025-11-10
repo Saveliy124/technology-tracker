@@ -1,6 +1,15 @@
 import './TechnologyCard.css';
+import TechnologyNotes from './TechnologyNotes';
 
-function TechnologyCard({ id, title, description, status, onStatusChange }) {
+function TechnologyCard({ 
+  id, 
+  title, 
+  description, 
+  status, 
+  notes,
+  onStatusChange,
+  onNotesChange
+}) {
   let statusIcon;
   let statusText;
   let statusClass;
@@ -19,8 +28,13 @@ function TechnologyCard({ id, title, description, status, onStatusChange }) {
     statusClass = 'not-started';
   }
 
-  // Обработчик клика для циклического переключения статусов
-  const handleClick = () => {
+  // Обработчик клика по карточке (ТОЛЬКО для изменения статуса)
+  const handleCardClick = (e) => {
+    // Проверяем, был ли клик по textarea или другим интерактивным элементам
+    if (e.target.tagName === 'TEXTAREA' || e.target.closest('.notes-section')) {
+      return; // ← ИГНОРИРУЕМ, ЕСЛИ КЛИК ПО TEXTAREA ИЛИ NOTES
+    }
+
     let nextStatus;
     
     if (status === 'not-started') {
@@ -37,7 +51,7 @@ function TechnologyCard({ id, title, description, status, onStatusChange }) {
   return (
     <div 
       className={`technology-card ${statusClass}`}
-      onClick={handleClick}
+      onClick={handleCardClick}
     >
       <div className="card-header">
         <h3>{title}</h3>
@@ -46,6 +60,14 @@ function TechnologyCard({ id, title, description, status, onStatusChange }) {
       <div className="card-body">
         <p className="description">{description}</p>
       </div>
+      
+      {/* Компонент заметок */}
+      <TechnologyNotes 
+        notes={notes}
+        onNotesChange={onNotesChange}
+        techId={id}
+      />
+
       <div className="card-footer">
         <p className="status-text">Статус: {statusText}</p>
         <span className="click-hint">Нажмите для изменения статуса</span>

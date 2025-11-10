@@ -39,16 +39,12 @@ function ProgressHeader({ totalTechnologies, completedTechnologies }) {
         </div>
       </div>
 
-      {/* Прогресс-бар */}
-      <div className="progress-bar-container">
-        <div className="progress-bar">
-          <div 
-            className="progress-bar-fill"
-            style={{ width: `${progressPercentage}%` }}
-          >
-            <span className="progress-label">{progressPercentage}%</span>
-          </div>
-        </div>
+      {/* Полоса прогресса */}
+      <div className="progress-bar">
+        <div 
+          className="progress-bar-fill"
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
       </div>
 
       {/* Дополнительная информация */}
@@ -56,7 +52,9 @@ function ProgressHeader({ totalTechnologies, completedTechnologies }) {
         <p className="progress-message">
           {completedTechnologies === totalTechnologies
             ? 'Поздравляем! Вы освоили все технологии на дорожной карте! 🏆'
-            : `Осталось изучить ${totalTechnologies - completedTechnologies} тем`}
+            : `Осталось изучить ${totalTechnologies - completedTechnologies} ${
+                totalTechnologies - completedTechnologies === 1 ? 'тему' : 'тем'
+              }`}
         </p>
       </div>
     </div>
