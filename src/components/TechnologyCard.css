@@ -1,0 +1,233 @@
+/* Базовые стили карточки */
+.technology-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+  background-color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.technology-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.technology-card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+/* Верхняя полоса для визуального разделения */
+.technology-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ccc, #ddd);
+  transition: background 0.4s ease;
+}
+
+/* Заголовок карточки */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
+  flex: 1;
+  transition: color 0.3s ease;
+}
+
+.status-badge {
+  font-size: 32px;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.technology-card:hover .status-badge {
+  transform: scale(1.15);
+}
+
+/* Анимация пульса для иконок */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Тело карточки */
+.card-body {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.description {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Подвал карточки */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  gap: 12px;
+}
+
+.status-text {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.click-hint {
+  font-size: 11px;
+  color: #999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-style: italic;
+}
+
+.technology-card:hover .click-hint {
+  opacity: 1;
+}
+
+/* ========== СТАТУСЫ ========== */
+
+/* Статус: ПРОЙДЕНО (completed) */
+.technology-card.completed {
+  border-left: 5px solid #4CAF50;
+  background: linear-gradient(135deg, #f1f8f4 0%, #ffffff 100%);
+}
+
+.technology-card.completed::before {
+  background: linear-gradient(90deg, #4CAF50, #66BB6A);
+}
+
+.technology-card.completed .card-header h3 {
+  color: #2e7d32;
+}
+
+.technology-card.completed .description {
+  color: #558b2f;
+}
+
+.technology-card.completed .status-text {
+  color: #4CAF50;
+}
+
+/* Статус: В ПРОЦЕССЕ (in-progress) */
+.technology-card.in-progress {
+  border-left: 5px solid #2196F3;
+  background: linear-gradient(135deg, #f3f7fb 0%, #ffffff 100%);
+}
+
+.technology-card.in-progress::before {
+  background: linear-gradient(90deg, #2196F3, #64B5F6);
+}
+
+.technology-card.in-progress .card-header h3 {
+  color: #1565c0;
+}
+
+.technology-card.in-progress .description {
+  color: #0d47a1;
+}
+
+.technology-card.in-progress .status-text {
+  color: #2196F3;
+}
+
+/* Статус: НЕ НАЧАТО (not-started) */
+.technology-card.not-started {
+  border-left: 5px solid #ff9800;
+  background: linear-gradient(135deg, #fef8f3 0%, #ffffff 100%);
+  opacity: 0.95;
+}
+
+.technology-card.not-started::before {
+  background: linear-gradient(90deg, #ff9800, #ffb74d);
+}
+
+.technology-card.not-started .card-header h3 {
+  color: #e65100;
+}
+
+.technology-card.not-started .description {
+  color: #ef6c00;
+}
+
+.technology-card.not-started .status-text {
+  color: #ff9800;
+}
+
+/* Анимация изменения статуса */
+@keyframes statusChange {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.technology-card.status-changing {
+  animation: statusChange 0.4s ease;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+  .technology-card {
+    padding: 16px;
+    margin: 12px 0;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card-header h3 {
+    font-size: 18px;
+  }
+
+  .status-badge {
+    font-size: 28px;
+    align-self: flex-start;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .click-hint {
+    display: none;
+  }
+}

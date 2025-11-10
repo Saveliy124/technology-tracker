@@ -1,0 +1,111 @@
+.filter-tabs {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.filter-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+}
+
+.filter-tab:hover {
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.filter-tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.filter-icon {
+  font-size: 18px;
+}
+
+.filter-label {
+  font-weight: 600;
+}
+
+.filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filter-tab.active .filter-count {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    gap: 8px;
+  }
+
+  .filter-tab {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .filter-icon {
+    font-size: 16px;
+  }
+
+  .filter-count {
+    min-width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-container {
+    gap: 6px;
+  }
+
+  .filter-tab {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .filter-icon {
+    font-size: 14px;
+  }
+
+  .filter-label {
+    display: none;
+  }
+
+  .filter-count {
+    min-width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+}
