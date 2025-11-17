@@ -1,0 +1,75 @@
+.api-loader {
+  margin-bottom: 32px;
+}
+
+.loader-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.loader-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.loader-error {
+  padding: 12px;
+  background: rgba(192, 21, 47, 0.2);
+  border-left: 4px solid #c0152f;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.loader-success {
+  padding: 12px;
+  background: rgba(76, 175, 80, 0.2);
+  border-left: 4px solid #4CAF50;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.loader-card .btn {
+  width: 100%;
+  margin-bottom: 16px;
+  background: white;
+  color: #667eea;
+  border: none;
+  font-weight: 600;
+}
+
+.loader-card .btn:hover:not(:disabled) {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.loader-card .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loader-info {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .loader-card {
+    padding: 20px;
+  }
+
+  .loader-card h3 {
+    font-size: 16px;
+  }
+
+  .loader-info {
+    font-size: 12px;
+  }
+}

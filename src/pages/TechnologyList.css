@@ -1,0 +1,256 @@
+.technology-list-page {
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.technologies-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.technologies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tech-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Статистика сбоку */
+.progress-summary {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.summary-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.stat-item.completed {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.stat-item.in-progress {
+  background: rgba(33, 150, 243, 0.1);
+}
+
+.stat-item.not-started {
+  background: rgba(255, 152, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 24px;
+  min-width: 24px;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #999;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.progress-section {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 16px;
+  margin: 16px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  transition: width 0.6s ease;
+  border-radius: 4px;
+}
+
+.progress-text {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  text-align: right;
+}
+
+.recommendation {
+  background: linear-gradient(135deg, #f0f4ff 0%, #f8faff 100%);
+  border-left: 4px solid #667eea;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.recommendation p {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+.additional-stats {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.stat-row-label {
+  color: #999;
+  font-weight: 600;
+}
+
+.stat-row-value {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 1024px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-summary {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .technology-list-page {
+    padding: 20px 16px;
+  }
+
+  .app-main {
+    gap: 24px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .section-header h2 {
+    font-size: 22px;
+  }
+
+  .summary-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .technology-list-page {
+    padding: 16px 12px;
+  }
+
+  .app-main {
+    gap: 16px;
+  }
+
+  .section-header h2 {
+    font-size: 20px;
+  }
+
+  .technologies-list {
+    gap: 16px;
+  }
+
+  .stat-item {
+    padding: 10px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+}

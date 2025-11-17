@@ -1,0 +1,322 @@
+.advanced-search {
+  margin-bottom: 28px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ========== ПОЛЕ ВВОДА И ФИЛЬТРЫ ========== */
+.search-container {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s ease;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-btn:hover {
+  color: #1a1a1a;
+}
+
+/* ========== ФИЛЬТР ========== */
+.language-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.language-filter label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.language-select {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ========== СОСТОЯНИЕ ПОИСКА ========== */
+.search-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #f0f4ff;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e0e0e0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========== РЕЗУЛЬТАТЫ ПОИСКА ========== */
+.search-results {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 16px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.results-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.results-count {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.result-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.result-item:hover {
+  background: #f0f4ff;
+  transform: translateX(4px);
+}
+
+.result-main {
+  flex: 1;
+}
+
+.result-title {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.result-desc {
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.result-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.meta-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  background: white;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: all 0.2s ease;
+}
+
+.meta-badge:hover {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+
+.language-badge {
+  background: #f0f4ff;
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.stars-badge {
+  background: #fff8e1;
+  border-color: #ffb300;
+  color: #f57c00;
+}
+
+.url-badge {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+}
+
+.result-status {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* ========== ПУСТОЙ РЕЗУЛЬТАТ ========== */
+.no-results {
+  text-align: center;
+  padding: 24px;
+}
+
+.no-results-icon {
+  font-size: 32px;
+  margin: 0;
+}
+
+.no-results-text {
+  margin: 12px 0 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ========== ПОДСКАЗКА ========== */
+.search-hint {
+  padding: 12px;
+  background: #f0fff4;
+  border-left: 3px solid #4caf50;
+  border-radius: 6px;
+}
+
+.search-hint p {
+  margin: 0;
+  font-size: 13px;
+  color: #2e7d32;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+  .search-container {
+    grid-template-columns: 1fr;
+  }
+
+  .language-filter {
+    width: 100%;
+  }
+
+  .results-list {
+    gap: 10px;
+  }
+
+  .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .result-status {
+    align-self: flex-end;
+  }
+
+  .result-meta {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .advanced-search {
+    padding: 16px;
+  }
+
+  .search-input {
+    font-size: 13px;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .result-title {
+    font-size: 13px;
+  }
+
+  .result-desc {
+    font-size: 11px;
+  }
+}
